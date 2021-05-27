@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: vijaykpinclassicwebapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vijaykpinclassicwebapp
+  template:
+    metadata:
+      labels:
+        app: vijaykpinclassicwebapp 
+    spec:
+      containers:
+        - name: vijaykpinclassicwebapp 
+          image: acr2705.azurecr.io/vijaykpinclassicwebapp
+          ports:
+          - containerPort: 80
