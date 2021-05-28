@@ -1,19 +1,21 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: vijaykpinclassicwebapp 
+  name: classicwebapp 
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: vijaykpinclassicwebapp
+      app: classicwebapp
   template:
     metadata:
       labels:
-        app: vijaykpinclassicwebapp 
+        app: classicwebapp 
     spec:
+      nodeSelector:
+        kubernetes.io/os: windows
       containers:
-        - name: vijaykpinclassicwebapp 
-          image: acr2705.azurecr.io/vijaykpinclassicwebapp
+        - name: classicwebapp 
+          image: hcbuacr.azurecr.io/classicwebapp
           ports:
           - containerPort: 80
